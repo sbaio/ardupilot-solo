@@ -5146,13 +5146,13 @@ bool NavEKF::calcGpsGoodToAlign(void)
     }
 
     // fail if velocity difference or reported speed accuracy greater than threshold
-    bool gpsVelFail = (velDiffAbs > 1.0f) || (gpsSpdAccuracy > 1.0f);
+//    bool gpsVelFail = (velDiffAbs > 1.0f) || (gpsSpdAccuracy > 1.0f);
 
     // fail if not enough sats
     bool numSatsFail = _ahrs->get_gps().num_sats() < 6;
 
     // fail if satellite geometry is poor
-    bool hdopFail = _ahrs->get_gps().get_hdop() > 250;
+//    bool hdopFail = _ahrs->get_gps().get_hdop() > 250;
 
     // fail if horiziontal position accuracy not sufficient
     float hAcc = 0.0f;
@@ -5201,7 +5201,7 @@ bool NavEKF::calcGpsGoodToAlign(void)
     gpsDriftNE = min(gpsDriftNE,10.0f);
     // Fail if more than 3 metres drift after filtering whilst pre-armed when the vehicle is supposed to be stationary
     // This corresponds to a maximum acceptable average drift rate of 0.3 m/s or single glitch event of 3m
-    bool gpsDriftFail = gpsDriftNE > 3.0f && !vehicleArmed;
+//    bool gpsDriftFail = gpsDriftNE > 3.0f && !vehicleArmed;
 
     // Check that the vertical GPS vertical velocity is reasonable after noise filtering
     bool gpsVertVelFail;
@@ -5237,7 +5237,7 @@ bool NavEKF::calcGpsGoodToAlign(void)
 
     // record time of fail
     // assume  fail first time called
-    if (gpsVelFail || numSatsFail || hdopFail || hAccFail || yawFail || gpsDriftFail || gpsVertVelFail || gpsHorizVelFail || lastGpsVelFail_ms == 0) {
+    if (numSatsFail || lastGpsVelFail_ms == 0) {
         lastGpsVelFail_ms = imuSampleTime_ms;
     }
 
