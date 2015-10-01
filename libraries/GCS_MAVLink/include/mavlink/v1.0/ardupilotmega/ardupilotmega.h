@@ -107,7 +107,8 @@ typedef enum MAV_CMD
 	MAV_CMD_DO_ACCEPT_MAG_CAL=42425, /* Initiate a magnetometer calibration |uint8_t bitmask of magnetometers (0 means all)| Empty| Empty| Empty| Empty| Empty| Empty|  */
 	MAV_CMD_DO_CANCEL_MAG_CAL=42426, /* Cancel a running magnetometer calibration |uint8_t bitmask of magnetometers (0 means all)| Empty| Empty| Empty| Empty| Empty| Empty|  */
 	MAV_CMD_DO_SEND_BANNER=42428, /* Reply with the version banner |Empty| Empty| Empty| Empty| Empty| Empty| Empty|  */
-	MAV_CMD_ENUM_END=42429, /*  | */
+	MAV_CMD_YAW_ER=55237, /* Sets a yaw rate error for the attitude controller |Empty|  */
+	MAV_CMD_ENUM_END=55238, /*  | */
 } MAV_CMD;
 #endif
 
